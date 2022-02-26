@@ -6,14 +6,19 @@ import createStore from "./reduccks/store/store";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ConnectedRouter } from "connected-react-router";
+import * as History from "history";
 
+const history = History.createBrowserHistory();
 // createStoreを実行してstate状態を生成
-export const store = createStore();
+export const store = createStore(history);
 
 ReactDOM.render(
   // Provider でラップすると内部でstoreを参照できるようになる
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
