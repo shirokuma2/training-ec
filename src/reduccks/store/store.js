@@ -6,6 +6,8 @@ import {
   applyMiddleware,
 } from "redux";
 import { connectRouter, routerMiddleware } from "connected-react-router";
+// Reduxで非同期処理を行うために必要なライブラリ
+import thunk from "redux-thunk";
 
 // import { ProductReducer } from "../products/reducers";
 import { UserReducer } from "../users/reducers";
@@ -18,6 +20,6 @@ export default function createStore(history) {
       //   products: ProductsReducer,
       users: UserReducer,
     }),
-    applyMiddleware(routerMiddleware(history))
+    applyMiddleware(routerMiddleware(history), thunk)
   );
 }
