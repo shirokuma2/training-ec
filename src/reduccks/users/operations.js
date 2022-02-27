@@ -7,22 +7,23 @@ export const signIn = () => {
     const state = getState();
     const isSignedIn = state.users.isSignedIn;
 
-    if (!isSignedIn) {
-      const url = "https://api.github.com/users/shirokuma2";
-      const response = await fetch(url)
-        .then((res) => res.json())
-        .catch(() => null);
+    // ログインズ済みの場合は何もしない
+    if (isSignedIn) return;
 
-      const username = response.login;
+    const url = "https://api.github.com/users/shirokuma2";
+    const response = await fetch(url)
+      .then((res) => res.json())
+      .catch(() => null);
 
-      dispatch(
-        signInAction({
-          isSignedIn: true,
-          uid: "001",
-          username,
-        })
-      );
-      dispatch(push("/"));
-    }
+    const username = response.login;
+
+    dispatch(
+      signInAction({
+        isSignedIn: true,
+        uid: "001",
+        username,
+      })
+    );
+    dispatch(push("/"));
   };
 };

@@ -1,5 +1,5 @@
 // initialStateとセット利用
-// Reducerのcaseではなく関数を作ったら追加する
+// Reducerのcaseではなく関数自体を作ったら追加する
 import {
   createStore as reduxCreateStore,
   combineReducers,
