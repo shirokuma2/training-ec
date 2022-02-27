@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import createStore from "./reduccks/store/store";
 // import * as serviceWorker from "./serviceWorker"
-import "./index.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ConnectedRouter } from "connected-react-router";
